@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search | MovieFlix</title>
+    <!-- Link your CSS file -->
+    <link rel="stylesheet" href="search.css" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <!-- Begin Navbar -->
+    <header class="navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <i class="fas fa-film"></i>
+          <span>MovieFlix</span>
+        </div>
+        <nav>
+          <ul class="nav-list">
+            
+            <!-- Genre Dropdown -->
+            <li class="dropdown" id="genreDropdown">
+              <span class="drop-btn">Genre ▼</span>
+              <ul class="dropdown-content">
+                <li><button data-genre="all">All Genres</button></li>
+                <li><button data-genre="Action">Action</button></li>
+                <li><button data-genre="Adventure">Adventure</button></li>
+                <li><button data-genre="Drama">Drama</button></li>
+                <li><button data-genre="Comedy">Comedy</button></li>
+                <li><button data-genre="Sci-Fi">Sci-Fi</button></li>
+              </ul>
+            </li>
+            <!-- Sort Dropdown -->
+            <li class="dropdown" id="sortDropdown">
+              <span class="drop-btn">Sort By ▼</span>
+              <ul class="dropdown-content">
+                <li><button data-sort="default">Default</button></li>
+                <li><button data-sort="year">Year</button></li>
+                <li><button data-sort="rating">IMDb Rating</button></li>
+                <li><button data-sort="title">Alphabetical</button></li>
+              </ul>
+            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="my-list.html">My List</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- End Navbar -->
+
+    <!-- Begin Main Content -->
+    <main>
+      <div class="search-decorations">
+        <!-- First set of 6 icons -->
+        <img src="assets/clapperboard-open.png" alt="Clapperboard" />
+        <img src="assets/film-strip.png" alt="Film Strip" />
+        <img src="assets/drink.png" alt="Drink" />
+        <img src="assets/star.png" alt="Star" />
+        <img src="assets/microphone.png" alt="Microphone" />
+        <img src="assets/theatre.png" alt="Theatre" />
+        <!-- Second set of 6 icons -->
+        <img src="assets/clapperboard-open.png" alt="Clapperboard" />
+        <img src="assets/film-strip.png" alt="Film Strip" />
+        <img src="assets/drink.png" alt="Drink" />
+        <img src="assets/star.png" alt="Star" />
+        <img src="assets/microphone.png" alt="Microphone" />
+        <img src="assets/theatre.png" alt="Theatre" />
+        <!-- Third set -->
+        <img src="assets/clapperboard-open.png" alt="Clapperboard" />
+        <img src="assets/film-strip.png" alt="Film Strip" />
+        <img src="assets/drink.png" alt="Drink" />
+        <img src="assets/star.png" alt="Star" />
+        <img src="assets/microphone.png" alt="Microphone" />
+        <img src="assets/theatre.png" alt="Theatre" />
+        <!-- Fourth set -->
+        <img src="assets/clapperboard-open.png" alt="Clapperboard" />
+        <img src="assets/film-strip.png" alt="Film Strip" />
+        <img src="assets/drink.png" alt="Drink" />
+        <img src="assets/star.png" alt="Star" />
+        <img src="assets/microphone.png" alt="Microphone" />
+        <img src="assets/theatre.png" alt="Theatre" />
+        <!-- Fifth set -->
+        <img src="assets/clapperboard-open.png" alt="Clapperboard" />
+        <img src="assets/film-strip.png" alt="Film Strip" />
+        <img src="assets/drink.png" alt="Drink" />
+        <img src="assets/star.png" alt="Star" />
+        <img src="assets/microphone.png" alt="Microphone" />
+        <img src="assets/theatre.png" alt="Theatre" />
+        <!-- Sixth set -->
+        <img src="assets/clapperboard-open.png" alt="Clapperboard" />
+        <img src="assets/film-strip.png" alt="Film Strip" />
+        <img src="assets/drink.png" alt="Drink" />
+        <img src="assets/star.png" alt="Star" />
+        <img src="assets/microphone.png" alt="Microphone" />
+        <img src="assets/theatre.png" alt="Theatre" />
+      </div>
+
+      <!-- Search box -->
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search for a movie..." />
+        <button id="searchBtn">Search</button>
+      </div>
+      
+      <!-- Movie Display Container -->
+      <div id="movieDisplay"></div>
+      <!-- Pagination controls -->
+      <div id="pagination">
+        <button id="prevBtn">Previous</button>
+        <span id="pageInfo"></span>
+        <button id="nextBtn">Next</button>
+      </div>
+    </main>
+    <!-- End Main Content -->
+
+    <!-- Begin Footer -->
+    <footer class="footer">
+      <p>© 2025 MovieFlix. All rights reserved.</p>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Script references (ensure these files are in the same directory as search.html or update paths accordingly) -->
+    <script src="search.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

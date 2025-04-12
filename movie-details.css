@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap");
+
+:root {
+  --primary: #f8c42d; /* Vibrant blue */
+  --secondary: #2453a3; /* Deep purple */
+  --accent: #e44f2d; /* Pink accent */
+  --background: #141414; /* Dark navy */
+  --card-bg: #1e1e1e; /* Slightly lighter navy */
+  --text: #e6e6e6; /* Soft white */
+  --text-secondary: #c2c2c2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+}
+
+.movie-container {
+    max-width: 95vw; /* Expands across screen */
+    height: 100vh; /* Ensures full-page layout */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    padding: 2rem;
+    margin: 0 auto; /* Ensures perfect centering */
+}
+
+.movie-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: #1E1E1E;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 80vw;
+    opacity: 0; /* Start fully invisible */
+    transform: scale(0.5); /* Start smaller */
+    animation: popIn 0.7s ease-in-out forwards; /* Animation on page load */
+}
+
+/* Pop-in animation */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Movie poster styling */
+.poster {
+  width: 350px; /* Increase size */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+  flex-shrink: 0;
+  margin-right: 2rem;
+}
+
+/* Movie details on the right */
+.details {
+  flex: 1; /* Makes it take remaining space */
+  text-align: left;
+}
+
+.details h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.details p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.details i {
+    font-size: 1.5rem;
+    color: #F8C42D; /* Highlight icons */
+}
+
+
+.box-office {
+    font-weight: bold;
+    color: #F8C42D; /* Highlight financial figures */
+}
+
+.ratings {
+    display: flex; 
+    align-items: center; /* Ensures perfect vertical alignment */
+    gap: 15px; /* Adds space between each rating */
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and rating number */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.rating-icon {
+    width: 32px; /* Adjust icon size */
+    height: auto;
+}
+
+
+.back-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 10px;
+    background-color: #F8C42D;
+    color: #1E1E1E;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #D4A623;
+}
+
+@media only screen and (max-width: 600px) {
+    
+    /* Ensure full-width container */
+    .movie-container {
+      max-width: 100vw;
+      padding: 1rem;
+      height: auto;
+      display: block;
+    }
+
+    /* Redesign the movie card as vertical with no extra padding */
+    .movie-card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 0;
+      margin: 0 auto;
+      border-radius: 1rem;
+      background: var(--card-bg);
+    }
+    
+    .poster {
+        width: 100%;
+    }
+
+    /* Overlay for title and genre on the poster */
+  .overlay-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: left;
+  }
+  
+  .overlay-title h2 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  .overlay-title p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  
+  /* Details section below the poster */
+  .details {
+    padding: 1rem;
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  /* Hide the director info on mobile if desired */
+  .details .director {
+    display: none;
+  }
+  
+  /* Box Office styling (if present) */
+  .box-office {
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--primary);
+  }
+  
+  /* Adjust other detail paragraphs as needed */
+  .details p {
+    margin-bottom: 0.5rem;
+  }
+  }

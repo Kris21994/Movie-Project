@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My List | MovieFlix</title>
+    <link rel="stylesheet" href="my-list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <i class="fas fa-film"></i>
+          <span>MovieFlix</span>
+        </div>
+        <nav>
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="my-list.html" class="active">My List</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="my-list">
+        <div class="container">
+          <h2 class="section-title">My List</h2>
+          <div id="myListGrid" class="movies-grid">
+            <!-- Movie cards will be dynamically added here -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 MovieFlix. All rights reserved.</p>
+    </footer>
+
+    <script src="my-list.js"></script>
+  </body>
+</html>

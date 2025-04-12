@@ -1,0 +1,585 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap");
+
+:root {
+  --primary: #f8c42d; /* Vibrant blue */
+  --secondary: #2453a3; /* Deep purple */
+  --accent: #e44f2d; /* Pink accent */
+  --background: #141414; /* Dark navy */
+  --card-bg: #1e1e1e; /* Slightly lighter navy */
+  --text: #e6e6e6; /* Soft white */
+  --text-secondary: #c2c2c2;
+}
+
+/* Base Reset & Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+  scroll-behavior: smooth;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.header {
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 
+
+Navbar for Search Page (Header)
+
+*/
+
+/* ==========================================
+   Navbar Styling
+========================================== */
+.navbar {
+  width: 85%;
+  max-width: 1200px;
+  background-color: transparent;
+  backdrop-filter: blur(12px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between; /* ✅ Logo Left, Links Right */
+  align-items: center;
+  border-radius: 1.5rem;
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top 0.4s ease-in-out;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* ✅ Pushes buttons to the right */
+  align-items: center;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+/* Hide Navbar on Scroll */
+.navbar.hidden {
+  top: -120px;
+}
+
+/* ==========================================
+ Navbar Content: Logo & Navigation
+========================================== */
+
+/* Logo Positioned Left */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem; /* ✅ Increase size */
+  font-weight: 700;
+  color: var(--primary); /* ✅ Ensure text color is correct */
+}
+
+.logo span {
+  color: var(--primary); /* ✅ Changes text color */
+}
+
+/* Navigation List Positioned Right */
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* ✅ Adds more spacing between buttons */
+  margin-left: auto; /* ✅ Pushes everything to the right */
+}
+
+/* Navigation Links */
+.nav-list li a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--text);
+  padding: 0.75rem 1.25rem;
+  border-radius: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-list li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--primary);
+}
+
+/* ==========================================
+ Dropdown Menu Styling
+========================================== */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown Button */
+.drop-btn {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--text);
+  padding: 0.75rem 1.25rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: block;
+}
+
+/* Dropdown Content */
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1e1e1e;
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 180px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* When the dropdown has the 'open' class, show the menu */
+.dropdown.open .dropdown-content {
+  display: block;
+}
+
+/* Remove or override any hover-triggered display rules */
+.dropdown:hover .dropdown-content {
+  display: none;
+}
+
+.dropdown-content li {
+  list-style: none;
+}
+
+/* Dropdown Buttons */
+.dropdown-content button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;
+  border: none;
+  border-radius: 1rem;
+  background: transparent;
+  color: var(--text);
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.3s ease;
+}
+
+.dropdown-content button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ---------------------------------------------------------
+   Search Box Styling
+--------------------------------------------------------- */
+/* Modern Search Bar */
+.search-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 500px; /* ✅ Limits width */
+  margin: 0 auto; /* ✅ Centers the search box */
+  gap: 1rem;
+  position: relative;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  border-radius: 1rem;
+  background: #1e1e1e;
+  margin-top: 200px;
+}
+
+.search-box:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  padding: 0.5rem;
+  width: 200px;
+  outline: none;
+}
+
+.search-box input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-box button {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+  color: white;
+  text-decoration: none;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.search-box button:hover {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  transform: scale(1.1); /* Slight pop-out effect */
+  box-shadow: 0 0 15px rgba(247, 37, 133, 0.6);
+}
+
+/* Pulse Ring Effect */
+.search-box button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: rgba(247, 37, 133, 0.2);
+  border-radius: 1rem;
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 0.4s ease-in-out;
+}
+/* ---------------------------------------------------------
+    Hover triggers the pulse 
+--------------------------------------------------------- */
+.search-box button:hover::after {
+  transform: translate(-50%, -50%) scale(1.2);
+  opacity: 0;
+}
+
+/* ---------------------------------------------------------
+    Search decoration 
+--------------------------------------------------------- */
+
+.search-decorations {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap; /* Allows icons to spread across multiple lines */
+  justify-content: space-evenly; /* Ensures even horizontal spacing */
+  align-content: space-evenly; /* Ensures even vertical spacing */
+  pointer-events: none; /* Prevent icons from interfering */
+  z-index: -1; /* Keeps icons behind all content */
+}
+
+.search-decorations img {
+  width: 42px; /* Adjust icon size */
+  margin: 24px; /* Adds space between icons */
+}
+
+/* ---------------------------------------------------------
+   Movie Display Container – Use either ID or Class
+   (Apply identical grid settings for both selectors)
+--------------------------------------------------------- */
+#moviesGrid,
+#movieDisplay {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+/* ---------------------------------------------------------
+   Movie Card Styling
+--------------------------------------------------------- */
+.movie-card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 220px;
+  transform-origin: top center;
+}
+
+.movie-card.show {
+  transform: translateY(0);
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+/* ---------------------------------------------------------
+   Poster Image for Movie Cards
+--------------------------------------------------------- */
+.poster {
+  width: 100%;
+  height: 320px; /* Adjust the height as needed */
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+}
+
+/* ---------------------------------------------------------
+   Movie Details Styling
+--------------------------------------------------------- */
+.details {
+  padding: 1.5rem;
+}
+
+.details h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text);
+}
+
+.details p {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-secondary);
+}
+
+/* Optionally, if you have a separate rating element */
+.rating {
+  color: var(--accent);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Container for pagination controls */
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 20px 0;
+}
+
+/* Style for Previous/Next buttons */
+#pagination button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #4361ee;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for enabled buttons */
+#pagination button:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+}
+
+/* Disabled button styles */
+#pagination button:disabled {
+  background-color: #7c7c7c;
+  cursor: not-allowed;
+}
+
+/* Style for the page information text */
+#pagination #pageInfo {
+  font-size: 1rem;
+  color: #e2e2e2;
+}
+
+/***************
+ * Movie Card *
+ ***************/
+
+.movie-card {
+  position: relative;
+}
+
+/* Base state for the add-to-list button - hidden by default */
+.add-to-list-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: none; /* hidden initially */
+  background-color: #333;
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #f1c40f; /* yellow initial color */
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Only display the add-to-list button when hovering over the movie card */
+.movie-card:hover .add-to-list-btn {
+  display: flex;
+}
+
+/* When a movie has been added to the list */
+.add-to-list-btn.added {
+  background-color: #28a745; /* green color to indicate added status */
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   Footer Styling for the Search Page
+--------------------------------------------------------- */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  color: var(--text-secondary);
+  margin-top: 2rem;
+}
+
+/* ---------------------------------------------------------
+   Responsive Adjustments
+--------------------------------------------------------- */
+@media only screen and (max-width: 600px) {
+  /* Navbar container adjustments */
+  .navbar {
+    width: 95%;
+    padding: 0.75rem;
+    top: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Logo adjustments */
+  .logo {
+    font-size: 1.5rem;
+    order: 1;
+  }
+
+  /* Nav list container */
+  .navbar-container {
+    flex-direction: column;
+    order: 2;
+    width: 100%;
+    padding: 0;
+  }
+
+  .nav-list {
+    gap: 0.5rem; /* Reduced gap between items */
+    padding: 0 1rem; /* Add horizontal padding */
+  }
+
+  .nav-list li a,
+  .drop-btn {
+    padding: 0.5rem 1rem !important; /* Optimized padding */
+    font-size: 0.9rem !important; /* Slightly smaller font */
+    white-space: nowrap;
+    min-width: max-content; /* Prevent width collapse */
+  }
+
+  .dropdown-content {
+    width: 200px; /* Full width dropdown */
+    left: 50%;
+  }
+
+  .dropdown-content button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Scrollable nav list */
+  .nav-list {
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+
+  .nav-list::-webkit-scrollbar {
+    display: none; /* Hide Chrome/Safari scrollbar */
+  }
+
+  .dropdown-content {
+    width: 100%;
+    left: 0;
+    position: relative;
+    margin-top: 0.5rem;
+  }
+
+  /* Search box adjustments */
+  .search-box {
+    margin-top: 140px;
+    width: 90%;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .search-box button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    height: 40px; /* Fixed height for consistent alignment */
+    line-height: 1; /* Reset line height */
+  }
+
+  /* Movie grid adjustments */
+  #moviesGrid,
+  #movieDisplay {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  /* Movie card adjustments */
+  .movie-card {
+    width: 100%;
+    transform: none;
+  }
+
+  /* Forcing exactly 14 movie cards per page by hiding the 15th card */
+  #moviesGrid .movie-card:nth-child(15),
+  #movieDisplay .movie-card:nth-child(15) {
+    display: none;
+  }
+
+  .movie-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Add-to-list button */
+  .add-to-list-btn {
+    display: flex !important;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+}
