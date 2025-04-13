@@ -151,48 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
       fetchMovie(title);
     });
   });
-
-  document.addEventListener("DOMContentLoaded", () => {
-    // Select the header element (adjust selector/id as needed)
-    const header = document.getElementById("mainHeader");
-    if (!header) {
-      console.error("Main header element not found.");
-      return;
-    }
-    
-    // URL of the header background image
-    const bgImageUrl = "assets/header-bg.jpg"; // update with your actual image path
-    
-    // Check if a cached data URL already exists for the header background
-    let cachedBg = sessionStorage.getItem("headerBg");
-    if (cachedBg) {
-      header.style.backgroundImage = `url(${cachedBg})`;
-      console.log("Loaded header background from cache.");
-    } else {
-      // Create an image object to load the header background image
-      const img = new Image();
-      img.src = bgImageUrl;
-      img.crossOrigin = "Anonymous"; // if image is served with proper CORS headers
-      img.onload = function () {
-        // Create a canvas to get the base64 representation
-        const canvas = document.createElement("canvas");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0);
-        // Convert the canvas to a data URL (PNG or JPEG)
-        const dataURL = canvas.toDataURL("image/jpeg");
-        // Set the header background to the data URL
-        header.style.backgroundImage = `url(${dataURL})`;
-        // Cache the base64 image in sessionStorage for subsequent page loads
-        sessionStorage.setItem("headerBg", dataURL);
-        console.log("Fetched and cached header background.");
-      };
-      img.onerror = function (err) {
-        console.error("Error loading header background image:", err);
-      };
-    }
-  });
   
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -234,3 +192,4 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
+
